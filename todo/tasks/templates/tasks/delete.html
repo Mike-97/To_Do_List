@@ -1,0 +1,27 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'tasks/style.css' %}">
+
+<style>
+
+body{
+	color: #F2F2F2;
+}
+
+input{
+    width: 20%;
+}
+
+</style>
+
+<div class="center-column">
+	<div class="asd">
+		<p>Are you sure you want to delete "{{item}}"?</p>
+
+		<form method="POST" action="">
+			{% csrf_token %}
+			<a class="btnDelete" href="{% url 'list' %}" >Cancel</a>
+			<input class="btnUpdate" type="submit" name="Confirm">
+		</form>
+
+	</div>
+</div>

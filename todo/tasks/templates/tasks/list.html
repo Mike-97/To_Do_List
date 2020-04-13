@@ -1,0 +1,34 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'tasks/style.css' %}">
+
+<style>
+
+
+</style>
+
+<body>
+	<div class="center-column">
+
+		<form method="POST" action="/">
+			{% csrf_token %}
+			{{form.title}}
+			<input class="btnSubmit" type="submit" name="Create Task">
+		</form>
+
+		<div class="todo-list">
+
+		{% for task in tasks %}
+			<div class="item-row">
+				<a class="btnUpdate" href="{% url 'update' task.id %}">Edit</a>
+				<a class="btnDelete" href="{% url 'delete' task.id %}">Delete</a>
+
+				{% if task.complete == True %}
+				<strike>{{task}}</strike>
+				{% else %}
+				<span>{{task}}</span>
+				{% endif %}
+			</div>
+		{% endfor %}
+		</div>
+	</div>
+</body>

@@ -1,0 +1,30 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'tasks/style.css' %}">
+
+<style>
+
+body{
+	color: #F2F2F2;
+}
+
+.cen{
+	text-align: center;
+}
+
+</style>
+
+
+<div class="center-column">
+	<form method="POST" action="">
+		{% csrf_token %}
+		<div class="cen">
+			Title:
+			{{form.title}}
+			Complete:
+			{{form.complete}}
+			<input class="btnUpdate" type="submit" name="Update Task">
+		</div>
+	</form>
+</div>
+
+
